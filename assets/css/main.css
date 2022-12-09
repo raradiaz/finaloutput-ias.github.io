@@ -3130,35 +3130,51 @@ input, select, textarea {
 		z-index: 10000;
 	}
 
-		#header .logo {
-			border: 0;
+	
+		
+		#header .button {
+			border: none;
 			display: inline-block;
 			font-size: 0.8em;
 			height: inherit;
 			line-height: inherit;
-			padding: 0 1.5em;
+
+			/* button styling */
+		#header	.button {
+			  --border-right: 6px;
+			  --text-stroke-color: rgba(255,255,255,0.6);
+			  --animation-color: #37FF8B;
+			  --fs-size: 2em;
+			  letter-spacing: 3px;
+			  text-decoration: none;
+			  font-size: var(--fs-size);
+			  font-family: "Arial";
+			  position: relative;
+			  text-transform: uppercase;
+			  color: transparent;
+			  -webkit-text-stroke: 1px var(--text-stroke-color);
+			}
+			/* this is the text, when you hover on button */
+		#header	.hover-text {
+			  position: absolute;
+			  box-sizing: border-box;
+			  content: attr(data-text);
+			  color: var(--animation-color);
+			  width: 0%;
+			  inset: 0;
+			  border-right: var(--border-right) solid var(--animation-color);
+			  overflow: hidden;
+			  transition: 0.5s;
+			  -webkit-text-stroke: 1px var(--animation-color);
+			}
+			/* hover */
+		#header	.button:hover .hover-text {
+			  width: 100%;
+			  filter: drop-shadow(0 0 23px var(--animation-color))
+			}
 		}
 
-			#header .logo strong {
-				-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-				-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-				-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-				transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-				background-color: #ffffff;
-				color: #242943;
-				display: inline-block;
-				line-height: 1.65em;
-				margin-right: 0.325em;
-				padding: 0 0.125em 0 0.375em;
-			}
-
-			#header .logo:hover strong {
-				background-color: #9bf1ff;
-			}
-
-			#header .logo:active strong {
-				background-color: #53e3fb;
-			}
+			
 
 		#header nav {
 			display: -moz-flex;
@@ -3481,7 +3497,7 @@ input, select, textarea {
 				}
 
 		#banner.major {
-			height: 75vh;
+			height: 45vh;
 			min-height: 30em;
 			max-height: 50em;
 		}
